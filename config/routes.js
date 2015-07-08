@@ -45,5 +45,5 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-  '/post user/uploadFile':'UserController.uploadFile'
+  'POST /user/uploadFile':'UserController.uploadFile'
 };
