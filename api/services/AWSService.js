@@ -1,7 +1,7 @@
 var fs = require('fs');
 var AWS = require('aws-sdk');
-var accessKeyId =  process.env.AWS_ACCESS_KEY || "AKIAJHPNFL44GBYZ4YGQ"; //old one AKIAIX2M43RZHUFYPSRA
-var secretAccessKey = process.env.AWS_SECRET_KEY || "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"; //old one Enqw/kp21FeU1PFfH6BXOsx/c2D7xwGphHzBfZU1
+var accessKeyId =  process.env.AWS_ACCESS_KEY || "AKIAJHPNFL44GBYZ4YGQ"; 
+var secretAccessKey = process.env.AWS_SECRET_KEY || "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"; 
 
 AWS.config.update({
     accessKeyId: accessKeyId,
@@ -43,7 +43,7 @@ exports.upload = function(doc, cb) {
         var params = {
                 Bucket: bucket,
                 Key: doc.name,
-                Body: doc.primaryImage,
+                Body: doc.data,
                 ACL: 'public-read',
                 ContentType: 'image/jpeg'
         };
