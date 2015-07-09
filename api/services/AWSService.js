@@ -1,7 +1,7 @@
 var fs = require('fs');
 var AWS = require('aws-sdk');
-var accessKeyId =  process.env.AWS_ACCESS_KEY || ""; 
-var secretAccessKey = process.env.AWS_SECRET_KEY || ""; 
+var accessKeyId =  process.env.AWS_ACCESS_KEY; 
+var secretAccessKey = process.env.AWS_SECRET_KEY; 
 
 AWS.config.update({
     accessKeyId: accessKeyId,
@@ -11,9 +11,9 @@ AWS.config.update({
 var s3 = new AWS.S3();
 
 exports.upload = function(doc, cb) {
-    // console.log(doc);
+    console.log(doc);
     doc.name = doc.name + "." + doc.ext;
-    var bucket = process.env.AWS_S3_IMG_BUCKET || 'appimagestore'; //'marrily-dev'
+    var bucket = process.env.AWS_S3_IMG_BUCKET || 'appimagestore'; 
 
     var uploader = function(params){
         s3.putObject(params, function (err, res) {
